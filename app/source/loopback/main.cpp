@@ -12,14 +12,14 @@
 
 #include <math.h>
 #include <stdio.h>
-#include <Windows.h>
-#include <MMDeviceAPI.h>
-#include <AudioClient.h>
-#include <AudioPolicy.h>
+#include <windows.h>
+#include <mmdeviceapi.h>
+#include <audioclient.h>
+#include <audiopolicy.h>
 
 // Speex 1.2 rc1 includes
 #include "speex/speex_resampler.h"
-#include "speex/speex_types.h"
+#include "speex/speexdsp_types.h"
 
 
 #define DllExport __declspec( dllexport )
@@ -119,7 +119,7 @@ void cleanUp()
   shuts off the playback thread.
   ---------------------------------------------------
 */
-DllExport int StopLoopbackRecording()
+extern "C" DllExport int StopLoopbackRecording()
 {
   int retryCount = 0;
 
@@ -482,7 +482,7 @@ DWORD WINAPI recordingThread(LPVOID lpParameter)
   Set up everything to be ready for recording.
   ---------------------------------------------------
 */
-DllExport int InitializeLoopbackRecording(unsigned int sampleRate, unsigned int recordingSize, bufferCallbackProc callback)
+extern "C" DllExport int InitializeLoopbackRecording(unsigned int sampleRate, unsigned int recordingSize, bufferCallbackProc callback)
 {
   BOOL success = FALSE;
 

@@ -1,0 +1,18 @@
+; loopback.dll export table
+;
+; audio.pas looks these up with GetProcAddress under the names MSVC's C++
+; compiler produced in the original build:
+;
+;   InitializeLoopbackRecordingImport = '?InitializeLoopbackRecording@@YAHIIP6AXPAXI@Z@Z'
+;   StopLoopbackRecordingImport       = '?StopLoopbackRecording@@YAHXZ'
+;
+; GCC mangles to the Itanium ABI instead, so those names would not exist in a
+; mingw-built DLL.  Declaring the two functions extern "C" in main.cpp gives
+; them undecorated internal names, and these aliases re-export them under the
+; MSVC spellings so no change to audio.pas is needed.
+
+LIBRARY loopback
+
+EXPORTS
+  ?InitializeLoopbackRecording@@YAHIIP6AXPAXI@Z@Z = InitializeLoopbackRecording
+  ?StopLoopbackRecording@@YAHXZ                   = StopLoopbackRecording

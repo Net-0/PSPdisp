@@ -1,0 +1,3 @@
+TODO:
+- Custom Makefile without relying on $PSPSDK/lib/build.mak for the PSP app?
+- Main Makefile with include for sub-Makefiles for each thing to be built, so the Makefile Extension can finally work with it?

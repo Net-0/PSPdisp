@@ -1,0 +1,16 @@
+{
+  "version": 4,
+  "configurations": [{
+    "name": "psp",
+    "configurationProvider": "ms-vscode.makefile-tools",
+    "compilerPath": "${env:PSPDEV}/bin/psp-gcc",
+    "includePath": [
+      "${workspaceFolder}/psp/source",
+      "${env:PSPDEV}/psp/include",
+      "${env:PSPDEV}/psp/sdk/include"
+    ],
+    "defines": ["_PSP_FW_VERSION=371"],
+    "cStandard": "c99",
+    "intelliSenseMode": "linux-gcc-x86"
+  }]
+}

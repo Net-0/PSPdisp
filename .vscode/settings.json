@@ -1,0 +1,6 @@
+{
+  "makefile.makefilePath": "psp/source/Makefile",
+  "makefile.makeDirectory": "psp/source",
+  "makefile.configureOnOpen": true,
+  "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools"
+}
